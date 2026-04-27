@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VitaFlow - Contact</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">🌿 VitaFlow</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="tips.html">Tips</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <h1>Contact Us 💬</h1>
+  <p>Have a question? We'd love to hear from you. We reply within 24 hours.</p>
+</div>
+
+<div class="contact-body">
+  <div class="c-info">
+    <h3>Get in Touch</h3>
+    <div class="c-row"><div class="c-icon">📧</div><div><strong>Email</strong><span>chat@vitaflow.com</span></div></div>
+    <div class="c-row"><div class="c-icon">📞</div><div><strong>Phone</strong><span>+91 98765 xxxxx</span></div></div>
+    <div class="c-row"><div class="c-icon">📍</div><div><strong>Address</strong><span>Presidency University, Banglore</span></div></div>
+    <div class="c-row"><div class="c-icon">🕐</div><div><strong>Hours</strong><span>Mon–Sat, 9 AM – 6 PM</span></div></div>
+  </div>
+
+  <div class="c-form">
+    <div id="formInner">
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" id="fname" placeholder="First name"/></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last name"/></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" id="email" placeholder="you@email.com"/></div>
+      <div class="form-group">
+        <label>Interested In</label>
+        <select>
+          <option>Select a program...</option>
+          <option>Fitness</option>
+          <option>Meditation</option>
+          <option>Nutrition</option>
+          <option>Sleep Reset</option>
+          <option>1-on-1 Coaching</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your wellness goals..."></textarea></div>
+      <button class="btn btn-green" style="width:100%" onclick="submitForm()">Send Message</button>
+    </div>
+    <div class="success-box" id="formSuccess">
+      <div class="s-icon">✅</div>
+      <h3>Message Sent!</h3>
+      <p>We'll get back to you within 24 hours.</p>
+      <br>
+      <a href="tips.html" class="btn btn-white">Browse Tips</a>
+    </div>
+  </div>
+</div>
+
+<div class="bg-light">
+  <div class="inner">
+    <h2>FAQs</h2>
+    <p class="sub">Common questions, quick answers.</p>
+    <div class="faq-wrap" id="faqList"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="brand">
+      <div class="footer-logo">🌿 VitaFlow</div>
+      <p>Science-backed wellness for everyone. Simple, affordable, and supportive.</p>
+    </div>
+    <div>
+      <h5>Programs</h5>
+      <ul>
+        <li><a href="services.html">Fitness</a></li>
+        <li><a href="services.html">Meditation</a></li>
+        <li><a href="services.html">Nutrition</a></li>
+        <li><a href="services.html">Sleep Reset</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="about.html">Our Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="tips.html">Wellness Tips</a></li>
+        <li><a href="tips.html">Daily Tracker</a></li>
+        <li><a href="services.html">Pricing</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+  <div class="footer-bottom">
+    <span>© 2025 VitaFlow</span>
+    <span>All Rights Reserved @ VitalFlow</span>
+  </div>
+</footer>
+
+<script>
+  const faqs = [
+    { q:'Do I need prior fitness experience?',   a:'No! Our programs suit all levels, including complete beginners.' },
+    { q:'Can I cancel my subscription anytime?', a:'Yes — no contracts. Cancel or pause anytime from your account.' },
+    { q:'Are meal plans vegetarian-friendly?',   a:'Yes! We support vegetarian, vegan, gluten-free, and other needs.' },
+    { q:'How does 1-on-1 coaching work?',        a:'Premium members get 45-min video sessions with a certified coach.' },
+    { q:'Is my health data safe?',               a:'All data is encrypted and never shared. Delete it anytime you want.' },
+  ];
+
+  document.getElementById('faqList').innerHTML = faqs.map((f, i) => `
+    <div class="faq-item" id="faq${i}">
+      <div class="faq-q" onclick="document.getElementById('faq${i}').classList.toggle('open')">
+        <span>${f.q}</span><div class="faq-icon">+</div>
+      </div>
+      <div class="faq-a">${f.a}</div>
+    </div>
+  `).join('');
+
+  function submitForm() {
+    if (!document.getElementById('fname').value || !document.getElementById('email').value) {
+      alert('Please fill in your name and email.'); return;
+    }
+    document.getElementById('formInner').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
